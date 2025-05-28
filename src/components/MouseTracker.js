@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useState, useEffect } from 'react';
 
 function MouseTracker({ onMouseMove }) {
@@ -30,9 +32,18 @@ function MouseTracker({ onMouseMove }) {
     }, [onMouseMove]); // 6. Dependency array - effect re-runs if onMouseMove changes
 
     return (
-        <div>
-            <p>X: {mousePosition.x}</p>
-            <p>Y: {mousePosition.y}</p>
+        <div className="card p-4 m-3 shadow w-25">
+            <i className="bi bi-mouse text-success" style={{ fontSize: '3rem' }}></i>
+            {/*
+                d-flex==display:flex;
+                flex-column==flex direction:column;
+                flex-md-row==when screen medium->flex direction:row;
+                fs-6==font-size:6;
+            */}
+            <div className="d-flex flex-column flex-md-row gap-2 font-monospace justify-content-center">
+                <p className="badge bg-danger fs-6">{mousePosition.x}</p>
+                <p className="badge bg-primary fs-6">{mousePosition.y}</p>
+            </div>
         </div>
     );
 }
